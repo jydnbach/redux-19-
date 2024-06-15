@@ -10,7 +10,9 @@ const counterReducer = (state = initialState, action) => {
   if (action.type === 'increase') {
     return {
       counter: state.counter + action.amount,
-      showCounter: state.showCounter,
+      showCounter: state.showCounter, // if you don't set it, redux will also not output it due to override
+      // don't just update and return state only => why? don't mutate state. always override it.
+      // due to reference types
     };
   }
 
